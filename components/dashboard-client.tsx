@@ -4,7 +4,7 @@ import { useState, useCallback, useMemo, useEffect } from 'react';
 import { CreativeWithMetrics } from '@/lib/queries';
 import { FilterSidebar, FilterState } from './filter-sidebar';
 import { KPISummary } from './kpi-summary';
-import { CreativeGrid } from './creative-grid';
+import { CreativeList } from './creative-list';
 import { CreativeDetailModal, CreativeDetail, DailyPerformance, DemographicData } from './creative-detail-modal';
 
 interface DashboardClientProps {
@@ -270,13 +270,10 @@ export function DashboardClient({ initialCreatives, initialMetrics, categories }
         </div>
 
         <div className="flex-1 min-w-0">
-          <CreativeGrid
+          <CreativeList
             creatives={filteredCreatives}
             onCreativeSelect={(creative) => setSelectedCreativeKey(creative.creative_key)}
           />
-          <div className="mt-4 text-sm text-gray-600">
-            {filteredCreatives.length} 개 소재 표시
-          </div>
         </div>
       </div>
 
